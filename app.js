@@ -1,4 +1,4 @@
-//importação do express e criação da variavel express
+//importação  (INCLUINDO) do express e criação da variavel express
 const express = require("express");
 
 
@@ -6,20 +6,22 @@ const express = require("express");
 const app = express();
 //fim da criação metos express
 
-//importação do express-handlebars e criação da variavel handlebars
+//importação  (INCLUINDO) do express-handlebars e criação da variavel handlebars
 const handlebars = require("express-handlebars");
-//importação do body-parser e criação da variavel bodyParser 
+//importação (INCLUINDO) do body-parser e criação da variavel bodyParser 
 const bodyParser = require("body-parser")
 
-//Criacao da variavel pagamento e caminho para o arquivo Pagamento.js
+//Criacao da variavel pagamento e CARREGANDO o arquivo Pagamento.js
 const pagamento = require("./models/Pagamento")
 
-
+//incluindo o Arquivo main.handlebars no app, assim o metodo express vai carregar o handlebars
 app.engine('handlebars', handlebars({defaultLayout: 'main'}))
 app.set('view engine', 'handlebars')
 
+//INCLUSÃO DAS CONFIGURAÇÕES DO bodyParser
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
+// FIM DA INCLUSÃO DAS CONFIGURAÇÕES DO bodyParser
 
 //Rotas
 app.get('/pagamento', function(req, res){
