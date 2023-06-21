@@ -34,6 +34,8 @@ app.get('/cad-pagamento', function(req, res){
 
 //Acesso aos atibutos do banco de dado
 app.post('/add-pagamento', function(req, res){
+    
+    //Nome da tabela "pagamento"
     pagamento.create({
         nome: req.body.nome,
         valor: req.body.valor
